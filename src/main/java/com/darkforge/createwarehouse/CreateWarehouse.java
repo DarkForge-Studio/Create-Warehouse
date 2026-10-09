@@ -4,6 +4,7 @@ import com.darkforge.createwarehouse.infrastructure.registry.AllBlocks;
 import com.darkforge.createwarehouse.infrastructure.registry.AllCreativeModeTabs;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -38,6 +39,10 @@ public class CreateWarehouse {
         AllCreativeModeTabs.register(modEventBus);
         AllBlocks.register();
 
+    }
+
+    public static ResourceLocation asResource(String s){
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, s);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
