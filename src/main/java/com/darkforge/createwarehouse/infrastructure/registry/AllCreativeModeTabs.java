@@ -2,18 +2,24 @@ package com.darkforge.createwarehouse.infrastructure.registry;
 
 import com.darkforge.createwarehouse.CreateWarehouse;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class AllCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> REGISTER = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CreateWarehouse.MOD_ID);
 
-public static final RegistryObject<CreativeModeTab> BASE_CREATIVE_TAB = REGISTER.register("base", () -> CreativeModeTab.builder().build()
-);
+public static final RegistryObject<CreativeModeTab> BASE_CREATIVE_TAB = REGISTER.register("base", () -> CreativeModeTab.builder()
+        .icon(() -> AllBlocks.WOODEN_CRATE_BLOCK.asStack())
+        .title(Component.translatable("creativetab.warehouse_tab"))
+        .displayItems(((pParameters, pOutput) -> {
+            pOutput.accept(AllBlocks.WOODEN_CRATE_BLOCK);
+        }))
+        .build());
 
     public static void register(IEventBus modEventBus){
         REGISTER.register(modEventBus);

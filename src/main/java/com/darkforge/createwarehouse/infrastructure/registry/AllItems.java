@@ -1,4 +1,10 @@
 package com.darkforge.createwarehouse.infrastructure.registry;
 
-public class AllItems {
+import net.minecraft.world.item.Item;
+
+public class AllItems extends Item {
+    public AllItems(Properties pProperties){
+        super(pProperties);
+        pProperties.stacksTo(4);
+    }
 }
