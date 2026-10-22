@@ -1,0 +1,7 @@
+// 1.20.1	2026-10-09T18:22:40.260342	Registrate Provider for create_warehouse [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+087d803f67d873911359cb59c73dd873238832b5 assets/create_warehouse/blockstates/wooden_crate.json
+56e3ee019f7235ec67abf8faf82a97ce12dbe0ab assets/create_warehouse/lang/en_ud.json
+0596959a3cdc4c4ff15eaf886925d603cd0e76d6 assets/create_warehouse/lang/en_us.json
+81c26e7e9e97d70f1fe19a2bc5862612b1edc25b assets/create_warehouse/models/item/wooden_crate.json
+da79c85c66b6b6d955588f8657cd6a40f05b4169 data/create_warehouse/loot_tables/blocks/wooden_crate.json
+8ba31deee67e0734790722187b7c082bd2551309 data/minecraft/tags/blocks/mineable/axe.json
