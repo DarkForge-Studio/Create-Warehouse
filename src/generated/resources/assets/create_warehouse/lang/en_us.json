@@ -1,3 +1,4 @@
 {
-  "block.create_warehouse.wooden_crate": "Wooden Crate"
+  "block.create_warehouse.wooden_crate": "Wooden Crate",
+  "creativetab.warehouse_tab": "Warehouse"
 }

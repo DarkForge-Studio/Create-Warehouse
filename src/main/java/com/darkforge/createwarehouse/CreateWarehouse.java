@@ -1,7 +1,8 @@
 package com.darkforge.createwarehouse;
 
-import com.darkforge.createwarehouse.infrastructure.registry.AllBlocks;
-import com.darkforge.createwarehouse.infrastructure.registry.AllCreativeModeTabs;
+import com.darkforge.createwarehouse.infrastructure.registry.CwBlockEntityTypes;
+import com.darkforge.createwarehouse.infrastructure.registry.CwBlocks;
+import com.darkforge.createwarehouse.infrastructure.registry.CwCreativeModeTabs;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.minecraft.resources.ResourceLocation;
@@ -36,8 +37,9 @@ public class CreateWarehouse {
 
         REGISTRATE.registerEventListeners(modEventBus);
 
-        AllCreativeModeTabs.register(modEventBus);
-        AllBlocks.register();
+        CwCreativeModeTabs.register(modEventBus);
+        CwBlocks.register();
+        CwBlockEntityTypes.register();
 
     }
 
