@@ -1,6 +1,6 @@
-package com.darkforge.createwarehouse.infrastructure.registry;
+package com.darkforge.warehouse.infrastructure.registry;
 
-import com.darkforge.createwarehouse.CreateWarehouse;
+import com.darkforge.warehouse.CreateWarehouse;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -15,7 +15,7 @@ public static final RegistryObject<CreativeModeTab> BASE_CREATIVE_TAB = REGISTER
         .icon(CwBlocks.WOODEN_CRATE_BLOCK::asStack)
         .title(Component.translatable("creativetab.warehouse_tab"))
         .displayItems(((pParameters, pOutput) -> {
-            pOutput.accept(com.darkforge.createwarehouse.infrastructure.registry.CwBlocks.WOODEN_CRATE_BLOCK);
+            pOutput.accept(com.darkforge.warehouse.infrastructure.registry.CwBlocks.WOODEN_CRATE_BLOCK);
         }))
         .build());
 

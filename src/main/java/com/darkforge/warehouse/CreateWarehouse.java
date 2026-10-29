@@ -1,8 +1,8 @@
-package com.darkforge.createwarehouse;
+package com.darkforge.warehouse;
 
-import com.darkforge.createwarehouse.infrastructure.registry.CwBlockEntityTypes;
-import com.darkforge.createwarehouse.infrastructure.registry.CwBlocks;
-import com.darkforge.createwarehouse.infrastructure.registry.CwCreativeModeTabs;
+import com.darkforge.warehouse.infrastructure.registry.CwBlockEntityTypes;
+import com.darkforge.warehouse.infrastructure.registry.CwBlocks;
+import com.darkforge.warehouse.infrastructure.registry.CwCreativeModeTabs;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.minecraft.resources.ResourceLocation;

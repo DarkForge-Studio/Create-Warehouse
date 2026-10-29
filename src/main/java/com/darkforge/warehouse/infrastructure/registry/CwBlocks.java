@@ -1,10 +1,11 @@
-package com.darkforge.createwarehouse.infrastructure.registry;
+package com.darkforge.warehouse.infrastructure.registry;
 
-import com.darkforge.createwarehouse.content.crate.WoodenCrateBlock;
+import com.darkforge.warehouse.content.crate.WoodenCrateBlock;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.util.entry.BlockEntry;
+import net.minecraft.world.level.material.MapColor;
 
-import static com.darkforge.createwarehouse.CreateWarehouse.REGISTRATE;
+import static com.darkforge.warehouse.CreateWarehouse.REGISTRATE;
 import static com.simibubi.create.foundation.data.TagGen.axeOnly;
 
 
@@ -15,6 +16,7 @@ public class CwBlocks {
             .initialProperties(SharedProperties::wooden)
             .lang("Wooden Crate")
             .transform(axeOnly())
+            .properties(p ->(p.mapColor(MapColor.COLOR_ORANGE)))
             .blockstate((c,p) -> p.simpleBlock(c.get(),
                     p.models().getExistingFile(p.modLoc("block/"+ c.getName()))))
             .item()

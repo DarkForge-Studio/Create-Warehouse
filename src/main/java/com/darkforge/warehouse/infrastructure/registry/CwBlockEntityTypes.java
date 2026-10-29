@@ -1,9 +1,9 @@
-package com.darkforge.createwarehouse.infrastructure.registry;
+package com.darkforge.warehouse.infrastructure.registry;
 
-import com.darkforge.createwarehouse.content.crate.WoodenCrateBlockEntity;
+import com.darkforge.warehouse.content.crate.WoodenCrateBlockEntity;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 
-import static com.darkforge.createwarehouse.CreateWarehouse.REGISTRATE;
+import static com.darkforge.warehouse.CreateWarehouse.REGISTRATE;
 
 public class CwBlockEntityTypes {
 

@@ -1,4 +1,4 @@
-package com.darkforge.createwarehouse.infrastructure.registry;
+package com.darkforge.warehouse.infrastructure.registry;
 
 import net.minecraft.world.item.Item;
 

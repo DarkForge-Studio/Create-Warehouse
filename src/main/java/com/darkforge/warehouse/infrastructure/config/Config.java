@@ -1,6 +1,6 @@
-package com.darkforge.createwarehouse.infrastructure.config;
+package com.darkforge.warehouse.infrastructure.config;
 
-import com.darkforge.createwarehouse.CreateWarehouse;
+import com.darkforge.warehouse.CreateWarehouse;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeConfigSpec;
