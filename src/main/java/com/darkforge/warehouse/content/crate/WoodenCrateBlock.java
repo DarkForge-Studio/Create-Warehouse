@@ -1,8 +1,12 @@
 package com.darkforge.warehouse.content.crate;
 
 
+import com.darkforge.warehouse.infrastructure.registry.CwBlockEntityTypes;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -10,6 +14,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
@@ -24,23 +30,7 @@ public class WoodenCrateBlock extends Block implements EntityBlock{
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return WOODEN_CRATE.create(pPos,pState);
-    }
-// Counter doesn't work
-    @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if(!pLevel.isClientSide && pHand == InteractionHand.MAIN_HAND) {
-            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            WoodenCrateBlockEntity be = new WoodenCrateBlockEntity(WOODEN_CRATE.get(),pPos,pState);
-            int counter = be.incrementCouter();
-            if(blockEntity instanceof WoodenCrateBlockEntity) {
-                pPlayer.sendSystemMessage(Component.literal("You have clicked this number of times " + counter));
-                blockEntity.setChanged();
-                return InteractionResult.sidedSuccess(pLevel.isClientSide());
-            }
-
-        }
-        return super.use(pState,pLevel,pPos,pPlayer,pHand,pHit);
+        return WOODEN_CRATE.create(pPos,pState); //New object of Crate Block Entity when placed!
     }
 }
 
