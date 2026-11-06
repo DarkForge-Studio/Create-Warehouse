@@ -9,6 +9,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.wrapper.InvWrapper;
 import org.jetbrains.annotations.NotNull;
 
 import static com.darkforge.warehouse.CreateWarehouse.MOD_ID;
@@ -26,7 +27,7 @@ public class WoodenCrateBlockEntity extends BlockEntity{
             WoodenCrateBlockEntity.this.setChanged();
         }
     };
-    private final LazyOptional<ItemStackHandler> optional = LazyOptional.of(() -> this.inventory); //this might have the key for 256 stacks
+    private final LazyOptional<InvWrapper> optional = LazyOptional.of(() -> this.inventory); //this might have the key for 256 stacks
 
     public WoodenCrateBlockEntity(BlockEntityType<?> type, BlockPos pPos, BlockState pBlockState) {
         super(WOODEN_CRATE.get(),pPos, pBlockState);
