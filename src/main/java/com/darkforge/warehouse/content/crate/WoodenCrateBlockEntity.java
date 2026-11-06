@@ -2,12 +2,17 @@ package com.darkforge.warehouse.content.crate;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.Container;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 import org.jetbrains.annotations.NotNull;
@@ -16,46 +21,51 @@ import static com.darkforge.warehouse.CreateWarehouse.MOD_ID;
 import static com.darkforge.warehouse.infrastructure.registry.CwBlockEntityTypes.WOODEN_CRATE;
 
 
-public class WoodenCrateBlockEntity extends BlockEntity{
+public class WoodenCrateBlockEntity extends BlockEntity implements Container {
 
-    public final int slotCount = 27;
+    public WoodenCrateBlockEntity(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
+        super(pType, pPos, pBlockState);
+    }
 
-    public final ItemStackHandler inventory = new ItemStackHandler(slotCount){
-        @Override
-        protected void onContentsChanged(int slot) {
-            super.onContentsChanged(slot);
-            WoodenCrateBlockEntity.this.setChanged();
-        }
-    };
-    private final LazyOptional<InvWrapper> optional = LazyOptional.of(() -> this.inventory); //this might have the key for 256 stacks
+    private final LazyOptional<IItemHandlerModifiable> inventory = LazyOptional.of()
 
-    public WoodenCrateBlockEntity(BlockEntityType<?> type, BlockPos pPos, BlockState pBlockState) {
-        super(WOODEN_CRATE.get(),pPos, pBlockState);
+    @Override
+    public int getContainerSize() {
+        return 27;
     }
 
     @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        optional.invalidate();
+    public boolean isEmpty() {
+        return false;
     }
 
     @Override
-    public void load(CompoundTag pTag) {
-        super.load(pTag);
-        CompoundTag warehouseData = pTag.getCompound(MOD_ID);
-        this.inventory.deserializeNBT(warehouseData);
+    public ItemStack getItem(int pSlot) {
+        return null;
     }
 
     @Override
-    protected void saveAdditional(CompoundTag pTag) {
-        super.saveAdditional(pTag);
-        var warehouseData = new CompoundTag();
-        pTag.put(MOD_ID,warehouseData);
-        warehouseData.put("Inventory" , inventory.serializeNBT());
+    public ItemStack removeItem(int pSlot, int pAmount) {
+        return null;
     }
 
     @Override
-    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap) { //this is so that other mods can be notified about our capabilities
-        return cap == ForgeCapabilities.ITEM_HANDLER ? this.optional.cast() : super.getCapability(cap);
+    public ItemStack removeItemNoUpdate(int pSlot) {
+        return null;
+    }
+
+    @Override
+    public void setItem(int pSlot, ItemStack pStack) {
+
+    }
+
+    @Override
+    public boolean stillValid(Player pPlayer) {
+        return false;
+    }
+
+    @Override
+    public void clearContent() {
+
     }
 }
